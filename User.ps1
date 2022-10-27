@@ -1,8 +1,12 @@
-if(get-localuser -Name "" -ErrorAction SilentlyContinue){
+$username = "elev"
+$new_user = $username
+$count = 2
 
-Write-Output "Japp"
+
+while (get-localuser -Name $new_user -ErrorAction SilentlyContinue) {
+    $username = $username + $count
+    $count++
 
 }
-else {
-Write-Output "No"
-}
+
+Write-Output $new_user
